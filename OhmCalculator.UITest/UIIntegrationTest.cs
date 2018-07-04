@@ -22,23 +22,26 @@ namespace OhmCalculator.UITest
         [InlineData("yellow", "green", "blue", "red")]
         public void Test1(string bandAColor, string bandBColor, string bandCColor, string bandDColor)
         {
-            var driver = new ChromeDriver(Directory.GetCurrentDirectory());
-            
+            using (var driver = new ChromeDriver(Directory.GetCurrentDirectory()))
+            {
+
                 driver.Navigate().GoToUrl(testUrl);
-            ((IJavaScriptExecutor)driver).ExecuteScript($"$('#dlBandA').val('{bandAColor}');$('#dlBandB').val('{bandBColor}');$('#dlBandC').val('{bandCColor}');$('#dlBandD').val('{bandDColor}');");
+                ((IJavaScriptExecutor)driver).ExecuteScript($"$('#dlBandA').val('{bandAColor}');$('#dlBandB').val('{bandBColor}');$('#dlBandC').val('{bandCColor}');$('#dlBandD').val('{bandDColor}');");
 
 
-            var link = driver.FindElementById("btnCalculate");
+                var link = driver.FindElementById("btnCalculate");
                 link.Click();
                 var wait = new WebDriverWait(driver, TimeSpan.FromMinutes(1));
-            object result = "";
-            wait.Until(drv=> {
-                var txtResistance = driver.FindElement(By.Id("txtResistance"));
-                result = txtResistance.GetAttribute("value");
-                return result.ToString() != "";
-            });
-            Assert.NotEmpty(result.ToString());
-            driver.Close();
+                object result = "";
+                wait.Until(drv =>
+                {
+                    var txtResistance = driver.FindElement(By.Id("txtResistance"));
+                    result = txtResistance.GetAttribute("value");
+                    return result.ToString() != "";
+                });
+                Assert.NotEmpty(result.ToString());
+                driver.Close();
+            }
         }
 
 
