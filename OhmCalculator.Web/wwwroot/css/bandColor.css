@@ -1,0 +1,131 @@
+﻿
+.brown {
+    background-color: #7D4302;
+}
+
+.red {
+    background-color: #E60514;
+}
+
+.black, .brown, .orange, .red, .violet, .grey, .green, .blue{
+    color: #FFF;
+}
+.orange {
+    background-color: #f26b31;
+}
+
+.yellow {
+    background-color: #F2EA7C;
+}
+
+.green {
+    background-color: #3CB057;
+}
+.blue {
+    background-color: #0483DE;
+}
+
+.violet {
+    background-color: #9D2CA3;
+}
+
+.grey {
+    background-color: #595759;
+}
+
+.white {
+    background-color: #FFF;
+}
+
+.gold, .silver, .white, .yellow {
+    color: #000;
+}
+
+.silver{
+    background-color:silver;
+}
+.black {
+    background-color: #000;
+}
+.gold {
+    background-color: gold;
+}
+
+.pink {
+    background-color: hotpink;
+}
+#bandB {
+    left: 181px;
+}
+#bandC {
+    left: 233px;
+}
+#bandA {
+    left: 129px;
+}
+
+#bandA, #bandB, #bandC {
+    height: 66px;
+    top: 7px;
+    width: 20px;
+}
+
+#bandD {
+    height: 78px;
+    top: 1px;
+    width: 20px;
+    left: 314px;
+}
+
+.resistor {
+    height: 20px;
+    width: 20px;
+}
+
+.colored-box, .resistor {
+    border-color: #000;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.resistor {
+    background-color: red;
+    position: absolute;
+    z-index: 2;
+}
+
+
+.vl {
+    border-left: 6px solid green;
+    height: 30px;
+    position: relative; margin-left: -3px;
+    top: 0;
+    margin-right: 20px
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stripimg {
+    min-width: 417px;
+    margin-left: 0 !important;
+}
+
+img {
+    vertical-align: middle;
+}
+
+#wrapper {
+    position: relative;
+    width:417px;
+}
+
+.btnCalculate {
+    float:right;
+    margin-right:15px;
+}

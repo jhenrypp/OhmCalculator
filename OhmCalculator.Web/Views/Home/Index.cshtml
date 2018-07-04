@@ -1,0 +1,171 @@
+﻿@model ResistorColors;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link href="~/css/bandColor.css" rel="stylesheet" />
+
+<div class="tab-pane fade active in" id="dvCalculator">
+    <h3>Color Resistor Calculator</h3>
+
+   
+
+        <div class="row visible-lg">
+            <div class="col-sm-12">
+                <div class="col-sm-1 col-lg-3"><span class="bold-header">Band A</span></div>
+                <div class="col-sm-1 col-lg-3"><span class="bold-header">Band B</span></div>
+                <div class="col-sm-1 col-lg-3"><span class="bold-header">Band C</span></div>
+                <div class="col-sm-1 col-lg-3"><span class="bold-header">Band D</span></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="form-group">
+                        <label for="b4d1" class="hidden-lg">Band A</label>
+                        <select class="form-control digit-picker ddlBand" id="dlBandA">
+                           
+                            @foreach (var o in Model.BandAList)
+                            {
+                                <option class="@o.Text.ToLower()" value="@o.Text.ToLower()">@o.Text - (@o.Value)</option>
+
+                            }
+                        </select>
+                        <span class="error">This field is required</span>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="form-group">
+                        <label for="b4d2" class="hidden-lg">Band B</label>
+                        <select class="form-control digit-picker ddlBand" id="dlBandB">
+                            
+                            @foreach (var o in Model.BandBList)
+                            {
+                                <option class="@o.Text.ToLower()" value="@o.Text.ToLower()">@o.Text - (@o.Value)</option>
+
+                            }
+                        </select>
+                        <span class="error">This field is required</span>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="form-group">
+                        <label for="b4d3" class="hidden-lg">Band C</label>
+                        <select class="form-control digit-picker ddlBand" id="dlBandC">
+                            
+                            @foreach (var o in Model.BandCList)
+                            {
+                                <option class="@o.Text.ToLower()" value="@o.Text.ToLower()">@o.Text - (@o.Value)</option>
+
+                            }
+                        </select>
+                        
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="form-group">
+                        <label for="b4d4" class="hidden-lg">Band D</label>
+                        <select class="form-control digit-picker ddlBand" id="dlBandD">
+                            
+                            @foreach (var o in Model.BandDList)
+                            {
+                                <option class="@o.Text.ToLower()" value="@o.Text.ToLower()">@o.Text - (±@o.Value)</option>
+
+                            }
+                        </select>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <button id="btnCalculate" class="btn btn-success btnCalculate">Calculate</button><br /><br />
+
+
+
+        
+    
+</div>
+<div id="dvResult" class="hidden">
+    <h3>Result</h3>
+    <div id="wrapper">
+
+        <img src="~/images/genericresistor.png" class="stripimg" />
+        <div id="bandA" class="resistor"></div>
+        <div id="bandB" class="resistor"></div>
+        <div id="bandC" class="resistor"></div>
+        <div id="bandD" class="resistor"></div>
+
+    </div>
+    <br />
+    <div class="row clearfix">
+        <div class="col-sm-12">
+            <div class="col-sm-2 col-xs-12">
+                <div class="form-group text-left">
+                    <label for="b4tool_output1">Resistance:</label>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-8">
+                <div id="tool_output_container" class="form-group">
+                    <input id="txtResistance" class="form-control" placeholder="Resistance" type="text" readonly>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-4">
+                <div class="form-group text-left">ohms</div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-sm-12">
+            <div class="col-sm-2 col-xs-12">
+                <div class="form-group text-left">
+                    <label for="txtResistance">Tolerance:&nbsp;</label>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-8">
+                <div id="tool_output_container" class="form-group">
+                    <input id="txtTolerance" class="form-control" placeholder="Tolerance" type="text" readonly>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-4">
+                <div class="form-group ">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-sm-12">
+            <div class="col-sm-2 col-xs-12">
+                <div class="form-group text-left">
+                    <label for="txtMinimum">Minimum:</label>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-8">
+                <div id="tool_output_container" class="form-group">
+                    <input id="txtMinimum" class="form-control" placeholder="Minimum" type="text" readonly>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-4">
+                <div class="form-group text-left">ohms</div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-sm-12">
+            <div class="col-sm-2 col-xs-12">
+                <div class="form-group text-left">
+                    <label for="txtMaximum">Maximum:</label>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-8">
+                <div id="tool_output_container" class="form-group">
+                    <input id="txtMaximum" class="form-control" placeholder="Maximum" type="text" readonly>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-4">
+                <div class="form-group text-left">ohms</div>
+            </div>
+        </div>
+    </div>
+    <button id="btnReturn" class="btn btn-default">Return</button>
+</div>

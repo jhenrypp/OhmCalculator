@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Interfaces\IFourBandResistor.cs" />
+    <Compile Remove="Interfaces\IResistorService.cs" />
+    <Compile Remove="Services\FourBandResistor.cs" />
+    <Compile Remove="Services\ResistorService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\" />
+  </ItemGroup>
+
+</Project>
