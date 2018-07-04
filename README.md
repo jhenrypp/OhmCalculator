@@ -37,7 +37,3 @@ In the code, I set chrome directory to the environment folder.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-Just a sample project using DDD. Have fun!!!
