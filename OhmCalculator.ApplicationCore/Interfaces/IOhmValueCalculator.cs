@@ -15,6 +15,9 @@ namespace OhmCalculator.ApplicationCore.interfaces
         /// <param name="bandCColor">The color of the decimal multiplier band.</param>
         /// <param name="bandDColor">The color of the tolerance value band.</param>
         double CalculateOhmValue(string bandAColor, string bandBColor, string bandCColor, string bandDColor);
+        /// <summary>
+        /// This property stores the tolerance, minmum and maximum ohm variation after applying tolerance.
+        /// </summary>
         ResistanceValue ResistanceValue { get;  }
     }
 
